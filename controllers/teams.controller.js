@@ -14,12 +14,20 @@ module.exports.create = (req, res, next) => {
 
     team.save()
         .then((team) => res.status(201).json(team))
-        .catch(next(error))
+        .catch(error => next(error))
+}
+
+module.exports.list = (req, res) =>{
+    Team.find({})
+        .then(teams=> {
+            res.status(201).json(teams)
+        })
+        .catch(next())
 }
 
 module.exports.edit = () => { 
-    const teamId = req.params.id
-    Team.findOne( {_id: teamId})
+    const teamId = req.query.teamid
+    Team.findById(teamId)
         .then(
             team => {
                 res.render('team/edit', {team: team})
@@ -29,7 +37,7 @@ module.exports.edit = () => {
 }
 
 module.exports.doEdit = (req, res, next) => {
-    const teamId = req.params.id;
+    const teamId = req.query.teamid;
     Team.findById(teamId)
         .then(
             team => {
