@@ -24,6 +24,7 @@ router.post('/teams/:teamid', teamsController.doEdit);
 /* PLAYERS */
 router.get('/teams/:teamid/players', playerController.list);
 router.post('/teams/:teamid/player', playerController.create);
+router.delete('/teams/:teamid/player', playerController.delete)
 
 /* LOGS */
 router.get('/login', usersController.login);

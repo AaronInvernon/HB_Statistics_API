@@ -26,7 +26,19 @@ module.exports.list = (req, res) => {
 
 module.exports.doEdit = (req, res) => {
     const playerId = req.params.playerId;
-    Player.findByIdAndUpdate(playerId)
+    Player.findById(playerId)
+        .then(
+            p => {
+                if (p) {
+                    p.name = req.body.name
+                    p.number = req.body.number
+
+                    p.save()
+                        .then((player) => {res.status(201).json(player)})
+                        res.redirect('/teams')
+                }
+            }
+        )
 }
 
 module.exports.delete = (req, res) => {
