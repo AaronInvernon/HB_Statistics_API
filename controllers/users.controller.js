@@ -1,5 +1,5 @@
 const User = require('../models/user.model'),
-    Team = require('../models(team.model'),
+    Team = require('../models/team.model'),
     createError = require('http-errors'),
     mongoose = require('mongoose');
 
@@ -25,7 +25,7 @@ module.exports.create = (req, res, next) => {
 
     user.save()
         .then((user) => res.status(201).json(user))
-        .catch(next(error))
+        .catch(error => next(error))
 }
 
 module.exports.edit = (req, res) => {
