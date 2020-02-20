@@ -1,4 +1,4 @@
-const Team = require('../models/team.model')
+const Team = require('../models/team.model'),
       Player = require('../models/player.model'),
       createError = require('http-errors'),
       mongoose = require('mongoose');

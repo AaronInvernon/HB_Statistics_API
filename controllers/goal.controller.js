@@ -4,8 +4,8 @@ const mongoose = require('mongoose'),
 
 module.exports.plus = (req, res) => {
     const goal = new Goal({
-        player: req.player._id,
-        match: req.match._id
+        player: req.body.playerId,
+        match: req.params.matchId
         //zone: 
     })
 }

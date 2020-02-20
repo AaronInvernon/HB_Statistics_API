@@ -1,7 +1,8 @@
 const mongoose = require('mongoose')
 
 const MatchSchema = new mongoose.Schema({
-    team: {type: mongoose.Schema.Types.ObjectId, required: true}
+    teamA: {type: mongoose.Schema.Types.ObjectId, required: true},
+    teamB: {type: mongoose.Schema.Types.ObjectId, required: true}
 }, 
 {
     timestamps: true
