@@ -21,4 +21,4 @@ module.exports.showScore = (_, res, next) => {
 
 }
 
-module.exports.showTime;
+module.exports.showTime ;

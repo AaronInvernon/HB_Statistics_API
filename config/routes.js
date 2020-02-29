@@ -11,9 +11,7 @@ module.exports = router;
 
 /* USERS */
 router.get('/users/new', usersController.new);
-router.post('/users', usersController.create);
-router.get('/users/edit', usersController.edit);
-router.post('users/edit', usersController.doEdit);
+router.post('/signup', usersController.create);
 
 /* TEAMS */
 router.post('/teams', teamsController.create);

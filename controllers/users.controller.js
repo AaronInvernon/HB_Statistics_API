@@ -16,7 +16,7 @@ module.exports.new = (_, res) => {
 
 
 module.exports.create = (req, res, next) => {
-
+    console.info(req.body)
     const user = new User({
         name: req.body.name,
         email: req.body.email,
