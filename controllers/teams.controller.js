@@ -8,8 +8,7 @@ const Team = require('../models/team.model'),
 module.exports.create = (req, res, next) => {
 
     const team = new Team({
-        name: req.body.name,
-        local: req.body.local
+        name: req.body.name
     })
 
     team.save()
@@ -22,7 +21,7 @@ module.exports.list = (req, res) =>{
         .then(teams=> {
             res.status(201).json(teams)
         })
-        .catch(next())
+        .catch((error => next(error)));
 }
 
 module.exports.edit = () => { 

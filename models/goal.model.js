@@ -1,20 +1,20 @@
 const mongoose = require('mongoose')
 
+
+
+const zoneGoal = ['tLeft','top','tRight','mLeft','middle','mRight','bLeft','bottom','bRight']
 const GoalSchema = new mongoose.Schema({
-   zone: {
-       topLeft: {type: Number}, 
-       top: {type: Number},
-       topRight: {type: Number},
-       middleLeft: {type: Number},
-       middle: {type: Number},
-       middleRight: {type: Number},
-       bottomLeft: {type: Number},
-       bottom: {type: Number},
-       bottomRight: {type: Number}
-   }, 
+   zone: {type:String, enum: zoneGoal}, 
    player: { type: mongoose.Schema.Types.ObjectId, ref:'Player' }, 
    match: { type: mongoose.Schema.Types.ObjectId, ref: 'Match'}
+}, 
+{
+    timestamps: true,
+    toJSON: {
+        virtuals: true
+    }
 })
+
 
 const Goal = new mongoose.model('Goal', GoalSchema)
 

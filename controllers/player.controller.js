@@ -14,7 +14,7 @@ module.exports.create = (req, res, next) => {
 
     player.save()
         .then((player) => res.status(201).json(player))
-        .catch(next())
+        .catch(next)    
 }
 
 module.exports.list = (req, res) => {
